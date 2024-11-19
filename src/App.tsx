@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import styles from "./App.module.css";
-import NameCard from "./components/NameCard";
+import Rename from "./components/Rename";
 
 const App = () => {
   return (
     <div class={styles.App}>
-      <NameCard />
+      <Rename />
     </div>
   );
 };
