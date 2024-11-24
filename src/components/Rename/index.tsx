@@ -10,12 +10,6 @@ import {
 } from "./helpers";
 import ResultContainer from "./ResultContainer";
 
-const Container = styled("div")(({ theme }) => ({
-  minHeight: 96,
-  borderRadius: 12,
-  border: "1px solid grey",
-}));
-
 const Rename = () => {
   const [val, setVal] = createSignal("");
   const [sentenceCase, setSentenceCase] = createSignal("");
@@ -24,23 +18,20 @@ const Rename = () => {
   const [kebabCase, setKebabCase] = createSignal("");
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ padding: 4 }}>
       <Grid container spacing={2}>
-        <Grid item xs={6} md={8}>
-          <Container>
-            <TextField
-              value={val()}
-              onChange={(e) => {
-                const inputValue = e.target.value;
-                setVal(inputValue);
-                setSentenceCase(toSentenceCase(inputValue));
-                setSnakeCase(toSnakeCase(inputValue));
-                setCamelCase(toCamelCase(inputValue));
-                setKebabCase(toKebabCase(inputValue));
-                console.log(sentenceCase());
-              }}
-            />
-          </Container>
+        <Grid item xs={12} md={12}>
+          <TextField
+            value={val()}
+            onChange={(e) => {
+              const inputValue = e.target.value;
+              setVal(inputValue);
+              setSentenceCase(toSentenceCase(inputValue));
+              setSnakeCase(toSnakeCase(inputValue));
+              setCamelCase(toCamelCase(inputValue));
+              setKebabCase(toKebabCase(inputValue));
+            }}
+          />
         </Grid>
         <ResultContainer title="Sentence case" value={sentenceCase()} />
         <ResultContainer title="Snake case" value={snakeCase()} />
